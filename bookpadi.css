@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #f5f5f5;
+  --color-primary: #2c1e1e; /* text-btn */
+  --color-secondary: #722f37; /* link-text */
+  --color-heading: #4c1c24;
+  --link-text: #722f37;
+  --btn-text: #2c1e1e;
+  --btn-bg: #d9b382;
+  --boxShadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.125rem 0.25rem var(--color-primary);
+  --text-font: 0.875rem;
+--product-boxshadow: 0 4px 8px rgba(0,0,0,0.05);
+--textColor:#333;
+}
+
+.dark-theme {
+  --color-bg: #1c1c1c;
+  --color-primary: #a8804d; /* text-btn */
+  --color-secondary: #d9b382; /* link-text */
+  --color-heading: #722f37;
+  --link-text: #d9b382;
+  --btn-text: #2c1e1e;
+  --btn-bg: #e6e6e6;
+  --boxShadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.3), 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  --text-font: 0.875rem;
+  --textColor:#333;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-size: var(--text-font);
+  color: var(--color-primary);
+}
+
+.text-danger{
+  font-weight: 100;
+  color: #c23333;
+}
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background: var(--color-heading);
+  box-shadow: var(--boxShadow);
+}
+
+header .logo {
+  width: 6.25rem;
+  height: 4.375rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+header .logo:hover {
+  transform: translate(-5px, -5px);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 2.5rem;
+background: var(--color-bg);
+  border-radius: 5px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+  cursor: text;
+}
+
+.search-box input:focus {
+  border: 1px solid var(--btn-bg);
+  box-shadow: 0 0 5px var(--btn-bg);
+}
+
+.search-box button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  align-items: center;
+}
+
+.btn-primary{
+  padding: 12px;
+}
+.btn-primary span{
+ width: 100%;
+color: var(--color-primary);
+  padding: 12px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.active{
+  background: var(--btn-bg);
+  border: 2px solid white;
+  box-shadow: var(--boxShadow);
+  color: var(--btn-text);
+}
+
+/* ----------------------main body-------------------------------- */
+
+
+
+
+/* Container for product items */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Styling for each product item */
+.main-container > div {
+  background-color: #fff;
+  color: var(--textColor);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: calc(33.333% - 2rem); /* Adjust for a 3-column layout */
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+
+
+/* Image styling for product items */
+.main-container div img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Product name styling */
+.main-container div h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 10px 0 5px;
+}
+
+/* Price styling */
+.price {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Rating styling */
+.rating {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+/* Add button styling */
+.add-btn {
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: var(--color-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-container > div {
+    width: calc(50% - 2rem); /* Two items per row */
+  }
+ 
+}
+
+@media (max-width: 768px) {
+  .main-container > div {
+    width: 100%; /* One item per row on smaller screens */
+    max-width: none;
+  }
+  .left-sidebar{
+    width: 100%;
+    height: auto;
+    top: 14;
+  }
+  
+}
+
+
+.opaque{
+  opacity: 0;
+  transition: opacity 1s ease;
+color: var(--color-secondary);
+font-weight: bold;
+margin-top: 10px;
+margin-left: 12px;
+}
+
+
+
+
+  /* ---------------left sidebar----------------------- */
+  .left-sidebar {
+    width: 250px;
+    background-color: var(--color-bg);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-right: 2px solid var(--color-primary);
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 5; /* Aligns with header */
+    display: none;
+
+  }
+ 
+  .left-sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .left-sidebar a:hover {
+    background-color: var(--color-secondary);
+    color: #fff;
+  }
+  
+  .left-sidebar a span {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; /* Icon size */
+    color: var(--color-primary);
+    transition: color 0.3s;
+  }
+  
+  .left-sidebar a:hover span {
+    color: #fff; /* Icon color on hover */
+  }
+  
+  .left-sidebar h3 {
+    font-size: 0.875rem;
+    font-weight: normal;
+    margin: 0;
+  }
+.cart-noti{
+  border-radius: 2%;
+   background: var(--color-secondary); 
+   margin-left: 50px; 
+   width: 50px; 
+   display: flex;
+   justify-content: center;
+}
+.cart-noti p{
+  font-size: 16px;
+  font-weight: bold;
+}
+/* ---------------------------------right sidebar---------------------------------------- */
+  .right-sidebar{
+    background: white;
+    width: 70%;
+    height: 100%;
+    position: sticky;
+    bottom: 70px;
+    left: 20.8%;
+  border: solid 2px black;
+border-radius: 8px;
+box-shadow: var(--boxShadow);
+display: none;
+flex-wrap: wrap;
+  }
+#cartProduct{
+  display: flex;
+  flex-wrap: wrap;
+}
+  .cart-item img{
+height: 260px;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+
+  .game{
+    background: #fff;
+  }
